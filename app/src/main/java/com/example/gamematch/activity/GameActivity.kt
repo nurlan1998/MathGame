@@ -101,8 +101,8 @@ class GameActivity : AppCompatActivity() {
         //если число вопрсов равен maxCountQuestion то переходим ScoreActivity
         if(countOfQuestion == maxCountQuestion){
             intent = Intent(this, ScoreActivity::class.java)
-            intent.putExtra(Util.countOfRightsAnswers,countOfRightAnswers)
-            intent.putExtra(Util.countOfQuestion,countOfQuestion)
+            intent.putExtra(Util.COUNT_OF_RIGHTS_ANSWERS,countOfRightAnswers)
+            intent.putExtra(Util.COUNT_OF_QUESTION,countOfQuestion)
             startActivity(intent)
             finish()
         }

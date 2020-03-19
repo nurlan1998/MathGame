@@ -13,8 +13,8 @@ class ScoreActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_score)
 
-        val countRightAnswers = intent.getIntExtra(Util.countOfRightsAnswers,0)
-        val countOfQuestion = intent.getIntExtra(Util.countOfQuestion,0)
+        val countRightAnswers = intent.getIntExtra(Util.COUNT_OF_RIGHTS_ANSWERS,0)
+        val countOfQuestion = intent.getIntExtra(Util.COUNT_OF_QUESTION,0)
         if(countRightAnswers == 10){
             tvYourWin.text = "You win"
         }else{
