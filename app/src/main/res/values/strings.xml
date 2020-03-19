@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">GameMath</string>
+    <string name="true_toast">Верно</string>
+    <string name="false_toast">Не верно</string>
+    <string name="tv_your_win">You win</string>
+    <string name="tv_game_over">Game Over</string>
+
 </resources>

@@ -1,4 +1,4 @@
-package com.example.gamematch
+package com.example.gamematch.game
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -7,6 +7,8 @@ import android.util.Log
 import android.view.View
 import android.widget.TextView
 import android.widget.Toast
+import com.example.gamematch.R
+import com.example.gamematch.Utils.Util
 import kotlinx.android.synthetic.main.activity_game.*
 import java.util.*
 import kotlin.collections.ArrayList
@@ -89,18 +91,18 @@ class GameActivity : AppCompatActivity() {
 
         //если нажатый текст равен правильному ответу то выводим тост
         if(pressedText == rightAnswer){
-            Toast.makeText(this,"Верно",Toast.LENGTH_SHORT).show()
+            Toast.makeText(this,R.string.true_toast,Toast.LENGTH_SHORT).show()
             countOfRightAnswers++
         }else{
-            Toast.makeText(this,"Не верно",Toast.LENGTH_SHORT).show()
+            Toast.makeText(this,R.string.false_toast,Toast.LENGTH_SHORT).show()
         }
         countOfQuestion++
 
         //если число вопрсов равен maxCountQuestion то переходим ScoreActivity
         if(countOfQuestion == maxCountQuestion){
-            intent = Intent(this,ScoreActivity::class.java)
-            intent.putExtra("countOfRightsAnswers",countOfRightAnswers)
-            intent.putExtra("countOfQuestion",countOfQuestion)
+            intent = Intent(this, ScoreActivity::class.java)
+            intent.putExtra(Util.countOfRightsAnswers,countOfRightAnswers)
+            intent.putExtra(Util.countOfQuestion,countOfQuestion)
             startActivity(intent)
             finish()
         }
