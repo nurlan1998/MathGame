@@ -20,6 +20,7 @@ class GameActivity : AppCompatActivity() {
     var maxCountQuestion = 10
     var countOfRightAnswers = 0
     var countOfQuestion = 0
+    var rightAnswerPosition = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,32 +56,26 @@ class GameActivity : AppCompatActivity() {
             else -> randomA / randomB
         }
         //случайно выбираем позицию правильного ответа
-        var rightAnswerPosition = Random().nextInt(3) + 1
-        Log.d("MyResultRight", "" + rightAnswer)
-
-        //в цикле do while проверяем до тех пор пока resultWrongAnswer не равен rightAnswer
-        do {
-            resultWrongAnswer = Random().nextInt(max)
-            Log.d("MyResultWrong", "" + resultWrongAnswer)
-
-        } while (resultWrongAnswer == rightAnswer)
+        rightAnswerPosition = Random().nextInt(3) + 1
+        Log.d("rightAnswers", "" + rightAnswer)
 
         for (x in 0 until 4) {
             Log.i("position", "" + rightAnswerPosition)
             //в цикле if проверяем если x равен позицию правильного ответа то добавляем в TextView
             if (x == rightAnswerPosition) {
                 arrayList.get(x).setText(Integer.toString(rightAnswer))
-                Log.d("rightAnswer","" + rightAnswer)
                 Log.d("positionRightAnswer", "" + x)
             } else {
-                resultWrongAnswer = Random().nextInt(max) + 1
-                arrayList.get(x).setText(Integer.toString(resultWrongAnswer))
 
-                resultWrongAnswer = Random().nextInt(max) + 1
-                arrayList.get(x).setText(Integer.toString(resultWrongAnswer))
+                //в цикле do while проверяем до тех пор пока resultWrongAnswer не равен rightAnswer
+                do {
+                    resultWrongAnswer = Random().nextInt(max)
+                    Log.d("resultWrongAnswer", "" + resultWrongAnswer)
 
-                    Log.i("resultWrong", "" + resultWrongAnswer)
-                    Log.d("positionResultWrong", "" + x)
+                } while (resultWrongAnswer == rightAnswer)
+
+                arrayList.get(x).setText(Integer.toString(resultWrongAnswer))
+                Log.d("positionResultWrong", "" + x)
             }
         }
         var score = String.format("%s/%s",countOfRightAnswers,countOfQuestion)
