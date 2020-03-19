@@ -1,4 +1,4 @@
-package com.example.gamematch.game
+package com.example.gamematch.activity
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity

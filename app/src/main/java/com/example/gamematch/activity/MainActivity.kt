@@ -1,10 +1,9 @@
-package com.example.gamematch.main
+package com.example.gamematch.activity
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.gamematch.R
-import com.example.gamematch.game.GameActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
