@@ -76,7 +76,7 @@ class GameActivity : AppCompatActivity() {
                 Log.i("positionWrongAnswer","" + x)
             }
         }
-        var score = String.format("$countOfRightAnswers / $countOfQuestion")
+        var score = "$countOfRightAnswers / $countOfQuestion"
         countQuestion.text = score
     }
 
