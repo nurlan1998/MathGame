@@ -44,10 +44,10 @@ class GameActivity : AppCompatActivity() {
 
         //random set in TextView: tvArithmeticExpression mark
         val mark = when (randomC) {
-            1 -> String.format("%s + %s", randomA, randomB)
-            2 -> String.format("%s - %s", randomA, randomB)
-            3 -> String.format("%s * %s", randomA, randomB)
-            else -> String.format("%s / %s", randomA, randomB)
+            1 ->"$randomA + $randomB"
+            2 -> "$randomA - $randomB"
+            3 -> "$randomA * $randomB"
+            else -> "$randomA / $randomB"
         }
         tvArithmeticExpressions.text = mark
 
@@ -62,25 +62,21 @@ class GameActivity : AppCompatActivity() {
         Log.d("rightAnswers", "" + rightAnswer)
 
         for (x in 0 until 4) {
-            Log.i("position", "" + rightAnswerPosition)
+
             //в цикле if проверяем если x равен позицию правильного ответа то добавляем в TextView
             if (x == rightAnswerPosition) {
                 arrayList.get(x).setText(Integer.toString(rightAnswer))
                 Log.d("positionRightAnswer", "" + x)
             } else {
 
-                //в цикле do while проверяем до тех пор пока resultWrongAnswer не равен rightAnswer
-                do {
-                    resultWrongAnswer = Random().nextInt(max)
+                    resultWrongAnswer = Random().nextInt(max) + rightAnswer
                     Log.d("resultWrongAnswer", "" + resultWrongAnswer)
 
-                } while (resultWrongAnswer == rightAnswer)
-
                 arrayList.get(x).setText(Integer.toString(resultWrongAnswer))
-                Log.d("positionResultWrong", "" + x)
+                Log.i("positionWrongAnswer","" + x)
             }
         }
-        var score = String.format("%s/%s",countOfRightAnswers,countOfQuestion)
+        var score = String.format("$countOfRightAnswers / $countOfQuestion")
         countQuestion.text = score
     }
 
