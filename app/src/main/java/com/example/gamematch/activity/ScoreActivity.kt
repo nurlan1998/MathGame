@@ -15,17 +15,18 @@ class ScoreActivity : AppCompatActivity() {
 
         val countRightAnswers = intent.getIntExtra(Util.COUNT_OF_RIGHTS_ANSWERS, 0)
         val countOfQuestion = intent.getIntExtra(Util.COUNT_OF_QUESTION, 0)
-        if (countRightAnswers == 10) {
+        if (countRightAnswers == GameActivity.MAX_COUNT_QUESTION) {
             tvYourWin.text = "You win"
         } else {
             tvYourWin.text = "Game Over"
         }
-        var result = String.format("%s/%s", countRightAnswers, countOfQuestion)
+        val result = "$countRightAnswers / $countOfQuestion"
         tvResultGame.text = result
 
         btnNewGame.setOnClickListener {
-            intent = Intent(this, GameActivity::class.java)
+            intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
+            finish()
         }
         btnMainMenu.setOnClickListener {
             intent = Intent(this, MainActivity::class.java)

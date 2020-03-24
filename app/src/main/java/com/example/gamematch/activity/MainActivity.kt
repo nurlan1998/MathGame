@@ -15,6 +15,7 @@ class MainActivity : AppCompatActivity() {
         btnPlay.setOnClickListener {
             intent = Intent(this, GameActivity::class.java)
             startActivity(intent)
+            finish()
         }
 
         btnOut.setOnClickListener {
