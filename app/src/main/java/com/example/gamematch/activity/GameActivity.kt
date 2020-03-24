@@ -44,7 +44,7 @@ class GameActivity : AppCompatActivity() {
 
         //random set in TextView: tvArithmeticExpression mark
         val mark = when (randomC) {
-            1 ->"$randomA + $randomB"
+            1 -> "$randomA + $randomB"
             2 -> "$randomA - $randomB"
             3 -> "$randomA * $randomB"
             else -> "$randomA / $randomB"
@@ -69,11 +69,11 @@ class GameActivity : AppCompatActivity() {
                 Log.d("positionRightAnswer", "" + x)
             } else {
 
-                    resultWrongAnswer = Random().nextInt(max) + rightAnswer
-                    Log.d("resultWrongAnswer", "" + resultWrongAnswer)
+                resultWrongAnswer = Random().nextInt(max) + rightAnswer
+                Log.d("resultWrongAnswer", "" + resultWrongAnswer)
 
                 arrayList.get(x).setText(Integer.toString(resultWrongAnswer))
-                Log.i("positionWrongAnswer","" + x)
+                Log.i("positionWrongAnswer", "" + x)
             }
         }
         var score = "$countOfRightAnswers / $countOfQuestion"
@@ -86,19 +86,19 @@ class GameActivity : AppCompatActivity() {
         val pressedText = textView.text.toString().toInt()
 
         //если нажатый текст равен правильному ответу то выводим тост
-        if(pressedText == rightAnswer){
-            Toast.makeText(this,R.string.true_toast,Toast.LENGTH_SHORT).show()
+        if (pressedText == rightAnswer) {
+            Toast.makeText(this, R.string.true_toast, Toast.LENGTH_SHORT).show()
             countOfRightAnswers++
-        }else{
-            Toast.makeText(this,R.string.false_toast,Toast.LENGTH_SHORT).show()
+        } else {
+            Toast.makeText(this, R.string.false_toast, Toast.LENGTH_SHORT).show()
         }
         countOfQuestion++
 
         //если число вопрсов равен maxCountQuestion то переходим ScoreActivity
-        if(countOfQuestion == maxCountQuestion){
+        if (countOfQuestion == maxCountQuestion) {
             intent = Intent(this, ScoreActivity::class.java)
-            intent.putExtra(Util.COUNT_OF_RIGHTS_ANSWERS,countOfRightAnswers)
-            intent.putExtra(Util.COUNT_OF_QUESTION,countOfQuestion)
+            intent.putExtra(Util.COUNT_OF_RIGHTS_ANSWERS, countOfRightAnswers)
+            intent.putExtra(Util.COUNT_OF_QUESTION, countOfQuestion)
             startActivity(intent)
             finish()
         }

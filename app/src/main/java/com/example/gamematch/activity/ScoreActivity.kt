@@ -13,14 +13,14 @@ class ScoreActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_score)
 
-        val countRightAnswers = intent.getIntExtra(Util.COUNT_OF_RIGHTS_ANSWERS,0)
-        val countOfQuestion = intent.getIntExtra(Util.COUNT_OF_QUESTION,0)
-        if(countRightAnswers == 10){
+        val countRightAnswers = intent.getIntExtra(Util.COUNT_OF_RIGHTS_ANSWERS, 0)
+        val countOfQuestion = intent.getIntExtra(Util.COUNT_OF_QUESTION, 0)
+        if (countRightAnswers == 10) {
             tvYourWin.text = "You win"
-        }else{
+        } else {
             tvYourWin.text = "Game Over"
         }
-        var result = String.format("%s/%s",countRightAnswers,countOfQuestion)
+        var result = String.format("%s/%s", countRightAnswers, countOfQuestion)
         tvResultGame.text = result
 
         btnNewGame.setOnClickListener {
