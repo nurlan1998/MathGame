@@ -24,7 +24,7 @@ class GameActivity : AppCompatActivity() {
     private var resultWrongAnswer: Int = 0
     private var arrayList = ArrayList<TextView>()
     private var countOfRightAnswers = 0
-    private var countOfQuestion = 0
+    private var countOfQuestion = 1
     private var rightAnswerPosition = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -71,7 +71,7 @@ class GameActivity : AppCompatActivity() {
                 Log.d("positionRightAnswer", "" + x)
             } else {
 
-                resultWrongAnswer = Random().nextInt(max-1) + rightAnswer + 1
+                resultWrongAnswer = Random().nextInt(max - 1) + rightAnswer + 1
                 Log.d("resultWrongAnswer", "" + resultWrongAnswer)
 
                 arrayList[x].text = "$resultWrongAnswer"
@@ -94,7 +94,8 @@ class GameActivity : AppCompatActivity() {
         } else {
             Toast.makeText(this, R.string.false_toast, Toast.LENGTH_SHORT).show()
         }
-        countOfQuestion++
+
+        generateQuestion()
 
         //если число вопрсов равен maxCountQuestion то переходим ScoreActivity
         if (countOfQuestion == MAX_COUNT_QUESTION) {
@@ -104,7 +105,6 @@ class GameActivity : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
-
-        generateQuestion()
+        countOfQuestion++
     }
 }
