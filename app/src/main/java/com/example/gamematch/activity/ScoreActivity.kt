@@ -24,7 +24,7 @@ class ScoreActivity : AppCompatActivity() {
         tvResultGame.text = result
 
         btnNewGame.setOnClickListener {
-            intent = Intent(this, MainActivity::class.java)
+            intent = Intent(this, GameActivity::class.java)
             startActivity(intent)
             finish()
         }

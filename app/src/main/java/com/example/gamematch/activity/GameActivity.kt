@@ -19,7 +19,7 @@ class GameActivity : AppCompatActivity() {
         const val MAX_COUNT_QUESTION = 10
     }
 
-    private var max = 30
+    private var max = 10
     private var rightAnswer: Int = 0
     private var resultWrongAnswer: Int = 0
     private var arrayList = ArrayList<TextView>()
@@ -101,8 +101,8 @@ class GameActivity : AppCompatActivity() {
             intent = Intent(this, ScoreActivity::class.java)
             intent.putExtra(Util.COUNT_OF_RIGHTS_ANSWERS, countOfRightAnswers)
             intent.putExtra(Util.COUNT_OF_QUESTION, countOfQuestion)
-            finish()
             startActivity(intent)
+            finish()
         }
 
         generateQuestion()
