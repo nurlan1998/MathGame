@@ -41,7 +41,7 @@ class GameActivity : AppCompatActivity() {
         arrayList.add(tvResult2)
         arrayList.add(tvResult3)
 
-        val randomB = Random().nextInt(max)
+        val randomB = Random().nextInt(max) + 1
         val randomA = Random().nextInt(max) * randomB
         val randomC = Random().nextInt(4) + 1
 
@@ -71,7 +71,7 @@ class GameActivity : AppCompatActivity() {
                 Log.d("positionRightAnswer", "" + x)
             } else {
 
-                resultWrongAnswer = Random().nextInt(max) + rightAnswer
+                resultWrongAnswer = Random().nextInt(max-1) + rightAnswer + 1
                 Log.d("resultWrongAnswer", "" + resultWrongAnswer)
 
                 arrayList[x].text = "$resultWrongAnswer"
