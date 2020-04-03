@@ -12,6 +12,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+            supportActionBar!!.hide()
+
         btnPlay.setOnClickListener {
             intent = Intent(this, GameActivity::class.java)
             startActivity(intent)
