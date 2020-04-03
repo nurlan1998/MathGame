@@ -14,6 +14,7 @@ class ScoreActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_score)
+        supportActionBar!!.hide()
 
         val pref = getSharedPreferences("pref", Context.MODE_PRIVATE)
         val maxScore = pref.getInt("max",0)
@@ -22,7 +23,7 @@ class ScoreActivity : AppCompatActivity() {
         val countOfQuestion = intent.getIntExtra(Util.COUNT_OF_QUESTION, 0)
         if (countRightAnswers == 10) {
             tvYourWin.text = "You win"
-        } else {
+        } else { 
             tvYourWin.text = "Game Over"
         }
         tvResultGame.text = "$countRightAnswers / $countOfQuestion"
